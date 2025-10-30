@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>AI Resume Builder</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<header class="navbar">
+			<div class="container">
+				<h1 class="brand">AI Resume Builder</h1>
+				<div class="nav-actions">
+					<button id="downloadPdfBtn" class="btn btn-primary">Download as PDF</button>
+				</div>
+			</div>
+		</header>
+
+		<main class="container app">
+			<section class="editor">
+				<div class="panel">
+					<h2 class="panel-title">Basic Information</h2>
+					<div class="grid two">
+						<label class="field">
+							<span>Full Name</span>
+							<input id="name" type="text" placeholder="Jane Doe">
+						</label>
+						<label class="field">
+							<span>Title</span>
+							<input id="title" type="text" placeholder="Software Engineer">
+						</label>
+						<label class="field">
+							<span>Email</span>
+							<input id="email" type="email" placeholder="jane@example.com">
+						</label>
+						<label class="field">
+							<span>Phone</span>
+							<input id="phone" type="text" placeholder="(+1) 555-123-4567">
+						</label>
+						<label class="field full">
+							<span>Location</span>
+							<input id="location" type="text" placeholder="San Francisco, CA">
+						</label>
+					</div>
+				</div>
+
+				<div class="panel">
+					<h2 class="panel-title">Summary</h2>
+					<label class="field">
+						<textarea id="summary" rows="4" placeholder="Brief professional summary"></textarea>
+					</label>
+					<div class="row-actions">
+						<button id="improveSummaryBtn" class="btn btn-secondary">Improve with AI</button>
+					</div>
+				</div>
+
+				<div class="panel">
+					<h2 class="panel-title">Experience</h2>
+					<div id="experienceList" class="stack"></div>
+					<div class="row-actions">
+						<button id="addExperienceBtn" class="btn btn-ghost">+ Add Experience</button>
+						<button id="improveExperienceBtn" class="btn btn-secondary">Improve with AI</button>
+					</div>
+				</div>
+
+				<div class="panel">
+					<h2 class="panel-title">Education</h2>
+					<div id="educationList" class="stack"></div>
+					<div class="row-actions">
+						<button id="addEducationBtn" class="btn btn-ghost">+ Add Education</button>
+					</div>
+				</div>
+
+				<div class="panel">
+					<h2 class="panel-title">Skills</h2>
+					<label class="field">
+						<input id="skills" type="text" placeholder="Comma-separated (e.g., React, TypeScript, Node.js)">
+					</label>
+					<div class="row-actions">
+						<button id="improveSkillsBtn" class="btn btn-secondary">Improve with AI</button>
+					</div>
+				</div>
+
+				<div class="panel">
+					<h2 class="panel-title">Achievements</h2>
+					<label class="field">
+						<textarea id="achievements" rows="3" placeholder="Key awards or achievements (one per line)"></textarea>
+					</label>
+				</div>
+
+				<div class="panel sticky">
+					<h2 class="panel-title">Job-Specific Tailoring</h2>
+					<div class="grid two">
+						<label class="field">
+							<span>Target Job Title</span>
+							<input id="targetTitle" type="text" placeholder="e.g., Frontend Engineer">
+						</label>
+						<label class="field">
+							<span>Job Description</span>
+							<input id="jobDescription" type="text" placeholder="Paste key JD summary">
+						</label>
+					</div>
+					<div class="row-actions">
+						<button id="tailorBtn" class="btn btn-accent">Tailor for Job (AI)</button>
+					</div>
+				</div>
+			</section>
+
+			<section class="preview">
+				<div id="resume" class="resume">
+					<div class="resume-header">
+						<h1 id="pv-name">Jane Doe</h1>
+						<p id="pv-title">Software Engineer</p>
+						<p class="contact" id="pv-contact">jane@example.com · (+1) 555-123-4567 · San Francisco, CA</p>
+					</div>
+					<div class="resume-section">
+						<h3>Summary</h3>
+						<p id="pv-summary">Results-driven engineer with a passion for building delightful user experiences.</p>
+					</div>
+					<div class="resume-section">
+						<h3>Experience</h3>
+						<ul id="pv-experience" class="bullets"></ul>
+					</div>
+					<div class="resume-section two-col">
+						<div>
+							<h3>Education</h3>
+							<ul id="pv-education" class="bullets"></ul>
+						</div>
+						<div>
+							<h3>Skills</h3>
+							<ul id="pv-skills" class="chips"></ul>
+						</div>
+					</div>
+					<div class="resume-section">
+						<h3>Achievements</h3>
+						<ul id="pv-achievements" class="bullets"></ul>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="container">
+				<p>Built for jobseekers — ready for future AI integration.</p>
+			</div>
+		</footer>
+
+		<script>
+			window.USE_DEMO_AI = true;
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
+
